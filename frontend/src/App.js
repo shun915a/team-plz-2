@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+// components
+
+import { Friends } from './containers/Friends.jsx'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Switch>
+        {/* 全募集一覧ページ */}
+
+        {/* フレンド募集一覧ページ */}
+        <Route
+          exact
+          path="/friends"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Friends />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
