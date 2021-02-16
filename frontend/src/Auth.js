@@ -52,7 +52,7 @@ class Auth extends React.Component {
                     text='Loading...'
                 >
                     <div style={{ height: '100vh', width: '100vw' }}></div>
-                </LoadingOverlay>
+                </ LoadingOverlay>
             );
         }
 

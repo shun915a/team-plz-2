@@ -1,40 +1,35 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import firebase from './Firebase';
 
-// components
+//screens
+import Home from './screens/Home';
+import Profile from './screens/Profile';
+import SignInOrUp from './screens/SignInOrUp';
+import SignUp from './screens/SignUp';
 
 import Auth from './Auth';
 
-import { Friends } from './containers/Friends.jsx'
-
-function App() {
-  return (
-    <Router>
-      <Switch>
-        {/* 登録・ログイン */}
-        <Route exact path="/signin" component={SignInOrUp} />
-        <Route exact path="/signup" component={SignUp} />
-        
-        {/* 全募集一覧ページ */}
-
-        {/* フレンド募集一覧ページ */}
-        <Auth>
-          <Route
-            exact
-            path="/friends"
-          >
-            <Friends />
-          </Route>
-        </Auth>
-      </Switch>
-    </Router>
-  );
+class App extends React.Component {
+    render() {
+        return (
+            <Router>
+                <Switch>
+                    <Route exact path="/signin" component={SignInOrUp} />
+                    <Route exact path="/signup" component={SignUp} />
+                    {/* 以下認証のみ */}
+                    <Auth>
+                        <Switch>
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/profile" component={Profile} />
+                            <Route render={() => <p>not found.</p>} />
+                        </Switch>
+                    </Auth>
+                </Switch>
+            </Router>
+        );
+    }
 }
 
 export default App;
