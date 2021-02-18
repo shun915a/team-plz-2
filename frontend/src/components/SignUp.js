@@ -13,6 +13,7 @@ import { Link, withRouter } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import firebase from "../Firebase";
+import { genProfile } from "../apis/users";
 
 class SignUp extends React.Component {
   state = {
@@ -35,6 +36,20 @@ class SignUp extends React.Component {
         if (this._isMounted) this.setState({ loading: false });
         //Homeに移動
         this.props.history.push("/"); //history.pushを使うためwithRouterしている
+        const user = firebase.auth().currentUser;
+        let userEmail, userUid;
+        if (user != null) {
+          userEmail = user.email;
+          userUid = user.uid;
+        }
+        console.log(userEmail);
+        console.log(userUid);
+        console.log(user);
+        const userParams = { email: userEmail, uid: userUid };
+        console.log(userParams);
+        genProfile({
+          profile: userParams,
+        });
       })
       .catch((error) => {
         //異常終了時

@@ -1,11 +1,10 @@
 import axios from "axios";
-import { createUser } from "../urls/index";
+import { createProfile } from "../urls/index";
 
-export const signUpUser = async (params) => {
+export const genProfile = async (params) => {
   return await axios
-    .post(users, {
-      uid: params.uid,
-      nickname: params.nickname,
+    .post(createProfile, {
+      profile: { email: "test@email.com", uid: "asdf1234" },
     })
     .then((res) => {
       return res.data;

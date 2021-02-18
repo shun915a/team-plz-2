@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration[6.0]
+class CreateProfiles < ActiveRecord::Migration[6.0]
   def change
-    create_table :users do |t|
+    create_table :profiles do |t|
       t.string :email, null: false
       t.string :uid, null: false
       t.string :nickname
@@ -12,9 +12,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :mildom_name
 
       t.timestamps null: false
-
-      add_index :users, :email, unique: true
-      add_index :users, :uid, unique: true
     end
+    add_index :profiles, :email, unique: true
+    add_index :profiles, :uid, unique: true
   end
 end
