@@ -45,10 +45,10 @@ class SignUp extends React.Component {
         console.log(userEmail);
         console.log(userUid);
         console.log(user);
-        const userParams = { email: userEmail, uid: userUid };
-        console.log(userParams);
+        const profile = { email: userEmail, uid: userUid };
+        console.log(profile);
         genProfile({
-          profile: userParams,
+          profile: profile,
         });
       })
       .catch((error) => {

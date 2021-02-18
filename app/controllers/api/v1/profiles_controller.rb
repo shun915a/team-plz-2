@@ -1,7 +1,6 @@
 class Api::V1::ProfilesController < ApplicationController
   def create
-    binding.pry
-    @profile = profile.new(profile_params)
+    @profile = Profile.new(profile_params)
     if @profile.save
       render status: 200, json: @profile
     else

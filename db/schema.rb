@@ -28,20 +28,4 @@ ActiveRecord::Schema.define(version: 2021_02_18_063358) do
     t.index ["uid"], name: "index_profiles_on_uid", unique: true
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "uid", null: false
-    t.string "nickname"
-    t.integer "gender_id"
-    t.date "birtthday"
-    t.text "profile"
-    t.string "twitter_name"
-    t.string "twitch_name"
-    t.string "mildom_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["uid"], name: "index_users_on_uid", unique: true
-  end
-
 end

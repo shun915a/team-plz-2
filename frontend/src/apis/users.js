@@ -4,7 +4,8 @@ import { createProfile } from "../urls/index";
 export const genProfile = async (params) => {
   return await axios
     .post(createProfile, {
-      profile: { email: "test@email.com", uid: "asdf1234" },
+      email: params.profile.email,
+      uid: params.profile.uid,
     })
     .then((res) => {
       return res.data;
