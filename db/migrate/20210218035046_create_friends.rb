@@ -5,6 +5,7 @@ class CreateFriends < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.string :game_id, null: false
       t.text :text, null: false
+      t.timestamps
     end
   end
 end
