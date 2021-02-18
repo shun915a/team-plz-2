@@ -1,7 +1,7 @@
 import axios from "axios";
-import { postUser } from "../urls/index";
+import { createUser } from "../urls/index";
 
-export const postUser = async (params) => {
+export const signUpUser = async (params) => {
   return await axios
     .post(users, {
       uid: params.uid,
